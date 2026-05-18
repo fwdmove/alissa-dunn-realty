@@ -23,18 +23,25 @@ export default function Page() {
   return (
     <main>
       {/* ── HERO ── */}
-      <section className="relative min-h-screen grid md:grid-cols-[1fr_42%]">
+      <section style={{ display: "grid", gridTemplateColumns: "1fr 42%", minHeight: "100svh" }}>
         {/* Left — copy */}
         <div
-          className="flex flex-col justify-center gap-8 px-8 py-10 md:px-14 md:py-12 bg-white"
-          style={{ minHeight: "100svh" }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            gap: "2rem",
+            padding: "2.5rem 3.5rem",
+            backgroundColor: "#ffffff",
+            minHeight: "100svh",
+          }}
         >
           {/* Logo / Wordmark */}
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease }}
-            className="flex items-center gap-3.5"
+            style={{ display: "flex", alignItems: "center", gap: "0.875rem" }}
             aria-label="Alissa Dunn Realty"
           >
             <svg
@@ -44,7 +51,7 @@ export default function Page() {
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               aria-hidden="true"
-              className="shrink-0"
+              style={{ flexShrink: 0 }}
             >
               <rect x="1.5" y="1.5" width="51" height="51" rx="4" stroke="#1B3A5C" strokeWidth="1.5" />
               <path d="M13.5 28.5L27 17.5L40.5 28.5" stroke="#3A9A5C" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -52,18 +59,11 @@ export default function Page() {
               <path d="M23 39V31H31V39" stroke="#1B3A5C" strokeWidth="1.6" strokeLinejoin="round" />
               <path d="M18 12H36" stroke="#1B3A5C" strokeWidth="1.4" strokeLinecap="round" />
             </svg>
-
             <div>
-              <div
-                className="font-700 leading-none"
-                style={{ fontSize: "1.35rem", color: "#1B3A5C" }}
-              >
+              <div style={{ fontSize: "1.35rem", fontWeight: 700, lineHeight: 1, color: "#1B3A5C" }}>
                 Alissa Dunn
               </div>
-              <div
-                className="font-600 uppercase mt-1.5"
-                style={{ fontSize: "0.62rem", color: "#3A9A5C", letterSpacing: "0.24em" }}
-              >
+              <div style={{ fontSize: "0.62rem", fontWeight: 600, color: "#3A9A5C", letterSpacing: "0.24em", textTransform: "uppercase", marginTop: "0.375rem" }}>
                 Realty Memphis
               </div>
             </div>
@@ -75,8 +75,7 @@ export default function Page() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.15, ease }}
-              className="text-xs font-500 tracking-widest uppercase mb-6"
-              style={{ color: "#3A9A5C", letterSpacing: "0.2em" }}
+              style={{ fontSize: "0.7rem", fontWeight: 500, color: "#3A9A5C", letterSpacing: "0.2em", textTransform: "uppercase", marginBottom: "1.5rem" }}
             >
               Memphis Real Estate
             </motion.p>
@@ -85,9 +84,9 @@ export default function Page() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.75, delay: 0.25, ease }}
-              className="font-700 leading-none"
               style={{
                 fontSize: "clamp(2.6rem, 5.5vw, 5rem)",
+                fontWeight: 700,
                 color: "#1B3A5C",
                 lineHeight: 1.05,
               }}
@@ -101,8 +100,7 @@ export default function Page() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease }}
-              className="mt-8 font-400 leading-relaxed max-w-md"
-              style={{ fontSize: "1.05rem", color: "#4A5568" }}
+              style={{ marginTop: "2rem", fontSize: "1.05rem", fontWeight: 400, lineHeight: 1.7, color: "#4A5568", maxWidth: "28rem" }}
             >
               Alissa Dunn is a Memphis-native realtor who closed over $6M in
               2024, ranked top 20 in her company and top 500 of 5,000 agents in
@@ -114,19 +112,27 @@ export default function Page() {
               initial={{ opacity: 0, y: 14 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.65, delay: 0.55, ease }}
-              className="mt-8 flex flex-wrap gap-4 items-center"
+              style={{ marginTop: "2rem", display: "flex", flexWrap: "wrap", gap: "1rem", alignItems: "center" }}
             >
               <a
                 href="mailto:alissa@alissadunnrealty.com"
-                className="inline-block px-8 py-3.5 font-600 text-sm tracking-wide text-white rounded-sm transition-all duration-200 hover:opacity-90"
                 style={{
+                  display: "inline-block",
+                  padding: "0.875rem 2rem",
                   backgroundColor: "#1B3A5C",
+                  color: "#ffffff",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
                   letterSpacing: "0.04em",
+                  textDecoration: "none",
+                  transition: "opacity 0.2s",
                 }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "0.85"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLAnchorElement).style.opacity = "1"; }}
               >
                 Work With Alissa
               </a>
-              <span className="text-sm font-400" style={{ color: "#6B7A8D" }}>
+              <span style={{ fontSize: "0.875rem", fontWeight: 400, color: "#6B7A8D" }}>
                 (901) 555-0142
               </span>
             </motion.div>
@@ -137,16 +143,13 @@ export default function Page() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.75, ease }}
-            className="flex flex-row flex-wrap gap-y-3 items-center"
+            style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "0.5rem 0" }}
           >
             {credentials.map((c, i) => (
-              <span
-                key={c}
-                className="flex items-center gap-5 text-xs font-500"
-              >
-                <span style={{ color: i === 0 ? "#3A9A5C" : "#8A9AAD" }}>{c}</span>
+              <span key={c} style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                <span style={{ fontSize: "0.75rem", fontWeight: 500, color: i === 0 ? "#3A9A5C" : "#8A9AAD" }}>{c}</span>
                 {i < credentials.length - 1 && (
-                  <span style={{ color: "#DDE3EA", fontSize: "0.6rem" }}>●</span>
+                  <span style={{ color: "#DDE3EA", fontSize: "0.5rem", margin: "0 0.25rem" }}>●</span>
                 )}
               </span>
             ))}
@@ -158,21 +161,23 @@ export default function Page() {
           initial={{ opacity: 0, scale: 1.03 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.1, ease }}
-          className="relative hidden md:block"
+          style={{ position: "relative" }}
         >
           <Image
             src="/alissa.jpeg"
             alt="Alissa Dunn"
             fill
-            className="object-cover object-top"
+            style={{ objectFit: "cover", objectPosition: "top" }}
             priority
             unoptimized
           />
-          {/* Subtle navy gradient on the left edge to blend with white */}
           <div
-            className="absolute inset-y-0 left-0 w-12 pointer-events-none"
             style={{
+              position: "absolute",
+              inset: "0 auto 0 0",
+              width: "3rem",
               background: "linear-gradient(to right, white, transparent)",
+              pointerEvents: "none",
             }}
           />
         </motion.div>
@@ -180,9 +185,9 @@ export default function Page() {
 
       {/* ── STATS ── */}
       <section style={{ backgroundColor: "#F5F7FA", borderTop: "1px solid #DDE3EA" }}>
-        <div className="max-w-6xl mx-auto px-8 py-14 md:py-16">
+        <div style={{ maxWidth: "72rem", margin: "0 auto", padding: "3.5rem 2rem" }}>
           {/* Stat numbers */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 mb-12">
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "1.5rem", marginBottom: "3rem" }}>
             {stats.map(({ value, label }, i) => (
               <motion.div
                 key={label}
@@ -190,22 +195,12 @@ export default function Page() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: i * 0.08, ease }}
-                className="text-center"
+                style={{ textAlign: "center" }}
               >
-                <div
-                  className="font-700"
-                  style={{
-                    fontSize: "clamp(2rem, 3.5vw, 2.8rem)",
-                    color: "#1B3A5C",
-                    lineHeight: 1,
-                  }}
-                >
+                <div style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "#1B3A5C", lineHeight: 1 }}>
                   {value}
                 </div>
-                <div
-                  className="mt-2 text-xs font-500 tracking-widest uppercase"
-                  style={{ color: "#3A9A5C", letterSpacing: "0.15em" }}
-                >
+                <div style={{ marginTop: "0.5rem", fontSize: "0.7rem", fontWeight: 500, color: "#3A9A5C", letterSpacing: "0.15em", textTransform: "uppercase" }}>
                   {label}
                 </div>
               </motion.div>
@@ -213,7 +208,7 @@ export default function Page() {
           </div>
 
           {/* Divider */}
-          <div style={{ height: "1px", backgroundColor: "#DDE3EA" }} className="mb-10" />
+          <div style={{ height: "1px", backgroundColor: "#DDE3EA", marginBottom: "2.5rem" }} />
 
           {/* About blurb */}
           <motion.div
@@ -221,33 +216,37 @@ export default function Page() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, ease }}
-            className="max-w-2xl mx-auto text-center"
+            style={{ maxWidth: "42rem", margin: "0 auto", textAlign: "center" }}
           >
-            <p className="font-400 leading-relaxed" style={{ fontSize: "1rem", color: "#4A5568" }}>
+            <p style={{ fontSize: "1rem", fontWeight: 400, lineHeight: 1.7, color: "#4A5568" }}>
               Alissa is a Memphis native, Chamber of Commerce Ambassador, and{" "}
-              <span className="font-600" style={{ color: "#1B3A5C" }}>
-                certified Military Relocation Specialist
-              </span>{" "}
-              — giving her clients access to expertise and community insight
-              you won&apos;t find on Zillow.
+              <span style={{ fontWeight: 600, color: "#1B3A5C" }}>certified Military Relocation Specialist</span>
+              {" "}— giving her clients access to expertise and community insight you won&apos;t find on Zillow.
             </p>
 
-            <div className="mt-10 flex justify-center">
+            <div style={{ marginTop: "2.5rem", display: "flex", justifyContent: "center" }}>
               <a
                 href="mailto:alissa@alissadunnrealty.com"
-                className="inline-block px-8 py-3.5 border-2 font-600 text-sm tracking-wide rounded-sm transition-all duration-200 hover:bg-navy"
                 style={{
-                  borderColor: "#1B3A5C",
+                  display: "inline-block",
+                  padding: "0.875rem 2rem",
+                  border: "2px solid #1B3A5C",
                   color: "#1B3A5C",
+                  fontSize: "0.875rem",
+                  fontWeight: 600,
                   letterSpacing: "0.04em",
+                  textDecoration: "none",
+                  transition: "background-color 0.2s, color 0.2s",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "#1B3A5C";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "white";
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.backgroundColor = "#1B3A5C";
+                  el.style.color = "white";
                 }}
                 onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLAnchorElement).style.backgroundColor = "transparent";
-                  (e.currentTarget as HTMLAnchorElement).style.color = "#1B3A5C";
+                  const el = e.currentTarget as HTMLAnchorElement;
+                  el.style.backgroundColor = "transparent";
+                  el.style.color = "#1B3A5C";
                 }}
               >
                 Get In Touch
